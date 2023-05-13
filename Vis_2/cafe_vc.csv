@@ -1,0 +1,301 @@
+area,canton,lat,lon,year,province,region
+5008,Alajuela,10.1670551,-84.4296032,2001,Alajuela,Valle Central
+4838,Alajuela,10.1670551,-84.4296032,2004,Alajuela,Valle Central
+4302,Alajuela,10.1670551,-84.4296032,2012,Alajuela,Valle Central
+3920,Alajuela,10.1670551,-84.4296032,2014,Alajuela,Valle Central
+3765,Alajuela,10.1670551,-84.4296032,2017,Alajuela,Valle Central
+2568,Poás,10.1065476,-84.3303717,2001,Alajuela,Valle Central
+2288,Poás,10.1065476,-84.3303717,2004,Alajuela,Valle Central
+2145,Poás,10.1065476,-84.3303717,2012,Alajuela,Valle Central
+1958,Poás,10.1065476,-84.3303717,2014,Alajuela,Valle Central
+1914,Poás,10.1065476,-84.3303717,2017,Alajuela,Valle Central
+748,La Unión,9.9158837,-84.0522432,2001,Cartago,Valle Central
+636,La Unión,9.9158837,-84.0522432,2004,Cartago,Valle Central
+638,La Unión,9.9158837,-84.0522432,2012,Cartago,Valle Central
+601,La Unión,9.9158837,-84.0522432,2014,Cartago,Valle Central
+567,La Unión,9.9158837,-84.0522432,2017,Cartago,Valle Central
+1058,Barva,10.0202225,-84.1287196,2001,Heredia,Valle Central
+1358,Barva,10.0202225,-84.1287196,2004,Heredia,Valle Central
+844,Barva,10.0202225,-84.1287196,2012,Heredia,Valle Central
+1043,Barva,10.0202225,-84.1287196,2014,Heredia,Valle Central
+779,Barva,10.0202225,-84.1287196,2017,Heredia,Valle Central
+104,Belén,10.2085897,-84.2079254,2001,Heredia,Valle Central
+35,Belén,10.2085897,-84.2079254,2004,Heredia,Valle Central
+59,Belén,10.2085897,-84.2079254,2012,Heredia,Valle Central
+21,Belén,10.2085897,-84.2079254,2014,Heredia,Valle Central
+32,Belén,10.2085897,-84.2079254,2017,Heredia,Valle Central
+214,Flores,10.0058531,-84.1644144,2001,Heredia,Valle Central
+115,Flores,10.0058531,-84.1644144,2004,Heredia,Valle Central
+99,Flores,10.0058531,-84.1644144,2012,Heredia,Valle Central
+57,Flores,10.0058531,-84.1644144,2014,Heredia,Valle Central
+80,Flores,10.0058531,-84.1644144,2017,Heredia,Valle Central
+570,Heredia,9.9878592,-84.1576984,2001,Heredia,Valle Central
+544,Heredia,9.9878592,-84.1576984,2004,Heredia,Valle Central
+365,Heredia,9.9878592,-84.1576984,2012,Heredia,Valle Central
+244,Heredia,9.9878592,-84.1576984,2014,Heredia,Valle Central
+236,Heredia,9.9878592,-84.1576984,2017,Heredia,Valle Central
+541,San Isidro,10.018599,-84.0605378,2001,Heredia,Valle Central
+445,San Isidro,10.018599,-84.0605378,2004,Heredia,Valle Central
+452,San Isidro,10.018599,-84.0605378,2012,Heredia,Valle Central
+749,San Isidro,10.018599,-84.0605378,2014,Heredia,Valle Central
+439,San Isidro,10.018599,-84.0605378,2017,Heredia,Valle Central
+366,San Pablo,9.9963663,-84.1021433,2001,Heredia,Valle Central
+304,San Pablo,9.9963663,-84.1021433,2004,Heredia,Valle Central
+266,San Pablo,9.9963663,-84.1021433,2012,Heredia,Valle Central
+239,San Pablo,9.9963663,-84.1021433,2014,Heredia,Valle Central
+244,San Pablo,9.9963663,-84.1021433,2017,Heredia,Valle Central
+932,San Rafael,10.0128479,-84.1033781,2001,Heredia,Valle Central
+792,San Rafael,10.0128479,-84.1033781,2004,Heredia,Valle Central
+685,San Rafael,10.0128479,-84.1033781,2012,Heredia,Valle Central
+639,San Rafael,10.0128479,-84.1033781,2014,Heredia,Valle Central
+598,San Rafael,10.0128479,-84.1033781,2017,Heredia,Valle Central
+1622,Santo Domingo,9.9795189,-84.0960261,2001,Heredia,Valle Central
+1424,Santo Domingo,9.9795189,-84.0960261,2004,Heredia,Valle Central
+1345,Santo Domingo,9.9795189,-84.0960261,2012,Heredia,Valle Central
+836,Santo Domingo,9.9795189,-84.0960261,2014,Heredia,Valle Central
+1129,Santo Domingo,9.9795189,-84.0960261,2017,Heredia,Valle Central
+1059,Santa Bárbara,10.0382382,-84.1651881,2001,Heredia,Valle Central
+929,Santa Bárbara,10.0382382,-84.1651881,2004,Heredia,Valle Central
+852,Santa Bárbara,10.0382382,-84.1651881,2012,Heredia,Valle Central
+838,Santa Bárbara,10.0382382,-84.1651881,2014,Heredia,Valle Central
+731,Santa Bárbara,10.0382382,-84.1651881,2017,Heredia,Valle Central
+263,Alajuelita,9.8895263,-84.1556391,2001,San José,Valle Central
+308,Alajuelita,9.8895263,-84.1556391,2004,San José,Valle Central
+151,Alajuelita,9.8895263,-84.1556391,2012,San José,Valle Central
+197,Alajuelita,9.8895263,-84.1556391,2014,San José,Valle Central
+102,Alajuelita,9.8895263,-84.1556391,2017,San José,Valle Central
+251,Curridabat,9.913915,-84.0496863,2001,San José,Valle Central
+243,Curridabat,9.913915,-84.0496863,2004,San José,Valle Central
+165,Curridabat,9.913915,-84.0496863,2012,San José,Valle Central
+186,Curridabat,9.913915,-84.0496863,2014,San José,Valle Central
+166,Curridabat,9.913915,-84.0496863,2017,San José,Valle Central
+63,Escazú,9.9188719,-84.1558153,2001,San José,Valle Central
+49,Escazú,9.9188719,-84.1558153,2004,San José,Valle Central
+29,Escazú,9.9188719,-84.1558153,2012,San José,Valle Central
+8,Escazú,9.9188719,-84.1558153,2014,San José,Valle Central
+13,Escazú,9.9188719,-84.1558153,2017,San José,Valle Central
+64,Goicoechea,9.9615827,-84.0064224,2001,San José,Valle Central
+55,Goicoechea,9.9615827,-84.0064224,2004,San José,Valle Central
+65,Goicoechea,9.9615827,-84.0064224,2012,San José,Valle Central
+62,Goicoechea,9.9615827,-84.0064224,2014,San José,Valle Central
+49,Goicoechea,9.9615827,-84.0064224,2017,San José,Valle Central
+86,Montes de Oca,9.9400376,-84.0315916,2001,San José,Valle Central
+82,Montes de Oca,9.9400376,-84.0315916,2004,San José,Valle Central
+68,Montes de Oca,9.9400376,-84.0315916,2012,San José,Valle Central
+60,Montes de Oca,9.9400376,-84.0315916,2014,San José,Valle Central
+52,Montes de Oca,9.9400376,-84.0315916,2017,San José,Valle Central
+680,Mora,9.9150242,-84.2475189,20,San José,Valle Central
+912,Mora,9.9150242,-84.2475189,20,San José,Valle Central
+683,Mora,9.9150242,-84.2475189,20,San José,Valle Central
+494,Mora,9.9150242,-84.2475189,20,San José,Valle Central
+687,Mora,9.9150242,-84.2475189,20,San José,Valle Central
+137,Moravia,10.0092497,-84.0988354,2001,San José,Valle Central
+199,Moravia,10.0092497,-84.0988354,2004,San José,Valle Central
+113,Moravia,10.0092497,-84.0988354,2012,San José,Valle Central
+120,Moravia,10.0092497,-84.0988354,2014,San José,Valle Central
+113,Moravia,10.0092497,-84.0988354,2017,San José,Valle Central
+1458,Puriscal,9.81342,-84.4282187,2001,San José,Valle Central
+1129,Puriscal,9.81342,-84.4282187,2004,San José,Valle Central
+1129,Puriscal,9.81342,-84.4282187,2012,San José,Valle Central
+945,Puriscal,9.81342,-84.4282187,2014,San José,Valle Central
+1088,Puriscal,9.81342,-84.4282187,2017,San José,Valle Central
+3,San José,9.9356277,-84.1545447,2012,San José,Valle Central
+1,San José,9.9356277,-84.1545447,2014,San José,Valle Central
+3,San José,9.9356277,-84.1545447,2017,San José,Valle Central
+392,Santa Ana,9.9286099,-84.2002815,2001,San José,Valle Central
+491,Santa Ana,9.9286099,-84.2002815,2004,San José,Valle Central
+371,Santa Ana,9.9286099,-84.2002815,2012,San José,Valle Central
+401,Santa Ana,9.9286099,-84.2002815,2014,San José,Valle Central
+434,Santa Ana,9.9286099,-84.2002815,2017,San José,Valle Central
+17,Tibás,9.9568008,-84.0913967,2001,San José,Valle Central
+8,Tibás,9.9568008,-84.0913967,2012,San José,Valle Central
+4,Tibás,9.9568008,-84.0913967,2014,San José,Valle Central
+4,Tibás,9.9568008,-84.0913967,2017,San José,Valle Central
+34,Turrubares,9.9011001,-84.4518828,2001,San José,Valle Central
+51,Turrubares,9.9011001,-84.4518828,2004,San José,Valle Central
+83,Turrubares,9.9011001,-84.4518828,2012,San José,Valle Central
+75,Turrubares,9.9011001,-84.4518828,2014,San José,Valle Central
+90,Turrubares,9.9011001,-84.4518828,2017,San José,Valle Central
+7,Vázquez de Coronado,9.993661,-84.0670885,2001,San José,Valle Central
+1,Vázquez de Coronado,9.993661,-84.0670885,2012,San José,Valle Central
+12,Vázquez de Coronado,9.993661,-84.0670885,2017,San José,Valle Central
+2135,Atenas,9.976712,-84.3879605,2001,Alajuela,Valle Occidental
+1630,Atenas,9.976712,-84.3879605,2004,Alajuela,Valle Occidental
+2007,Atenas,9.976712,-84.3879605,2012,Alajuela,Valle Occidental
+1739,Atenas,9.976712,-84.3879605,2014,Alajuela,Valle Occidental
+1876,Atenas,9.976712,-84.3879605,2017,Alajuela,Valle Occidental
+4865,Grecia,10.0755367,-84.3237591,2001,Alajuela,Valle Occidental
+4272,Grecia,10.0755367,-84.3237591,2004,Alajuela,Valle Occidental
+4212,Grecia,10.0755367,-84.3237591,2012,Alajuela,Valle Occidental
+3248,Grecia,10.0755367,-84.3237591,2014,Alajuela,Valle Occidental
+3758,Grecia,10.0755367,-84.3237591,2017,Alajuela,Valle Occidental
+6898,Naranjo,10.0984524,-84.3852997,2001,Alajuela,Valle Occidental
+6881,Naranjo,10.0984524,-84.3852997,2004,Alajuela,Valle Occidental
+6662,Naranjo,10.0984524,-84.3852997,2012,Alajuela,Valle Occidental
+5327,Naranjo,10.0984524,-84.3852997,2014,Alajuela,Valle Occidental
+6229,Naranjo,10.0984524,-84.3852997,2017,Alajuela,Valle Occidental
+2394,Palmares,10.0606951,-84.4415189,2001,Alajuela,Valle Occidental
+1904,Palmares,10.0606951,-84.4415189,2004,Alajuela,Valle Occidental
+2209,Palmares,10.0606951,-84.4415189,2012,Alajuela,Valle Occidental
+1587,Palmares,10.0606951,-84.4415189,2014,Alajuela,Valle Occidental
+2023,Palmares,10.0606951,-84.4415189,2017,Alajuela,Valle Occidental
+660,San Mateo,9.9381622,-84.5412974,2001,Alajuela,Valle Occidental
+413,San Mateo,9.9381622,-84.5412974,2004,Alajuela,Valle Occidental
+577,San Mateo,9.9381622,-84.5412974,2012,Alajuela,Valle Occidental
+312,San Mateo,9.9381622,-84.5412974,2014,Alajuela,Valle Occidental
+457,San Mateo,9.9381622,-84.5412974,2017,Alajuela,Valle Occidental
+6,417,San Ramón,10.0907898,-84.479433,2001,Alajuela,Valle Occidental
+5,047,San Ramón,10.0907898,-84.479433,2004,Alajuela,Valle Occidental
+5,862,San Ramón,10.0907898,-84.479433,2012,Alajuela,Valle Occidental
+4,629,San Ramón,10.0907898,-84.479433,2014,Alajuela,Valle Occidental
+5,812,San Ramón,10.0907898,-84.479433,2017,Alajuela,Valle Occidental
+2,156,Valverde Vega,10.1626852,-84.3767204,2001,Alajuela,Valle Occidental
+1,558,Valverde Vega,10.1626852,-84.3767204,2004,Alajuela,Valle Occidental
+2,079,Valverde Vega,10.1626852,-84.3767204,2012,Alajuela,Valle Occidental
+2,254,Valverde Vega,10.1626852,-84.3767204,2014,Alajuela,Valle Occidental
+1811,Valverde Vega,10.1626852,-84.3767204,2017,Alajuela,Valle Occidental
+9,Zarcero,10.1860529,-84.4028092,2012,Alajuela,Valle Occidental
+37,Zarcero,10.1860529,-84.4028092,2014,Alajuela,Valle Occidental
+27,Zarcero,10.1860529,-84.4028092,2017,Alajuela,Valle Occidental
+4,Guatuso,10.7067437,-85.0070721,2014,Alajuela,Zona Norte
+512,San Carlos,10.5819682,-84.4221169,2001,Alajuela,Zona Norte
+131,San Carlos,10.5819682,-84.4221169,2004,Alajuela,Zona Norte
+49,San Carlos,10.5819682,-84.4221169,2012,Alajuela,Zona Norte
+76,San Carlos,10.5819682,-84.4221169,2014,Alajuela,Zona Norte
+14,San Carlos,10.5819682,-84.4221169,2017,Alajuela,Zona Norte
+11,Upala,10.8980628,-85.0264334,2014,Alajuela,Zona Norte
+548,Abangares,10.1533804,-85.063147,2001,Guanacaste,Zona Norte
+464,Abangares,10.1533804,-85.063147,2004,Guanacaste,Zona Norte
+585,Abangares,10.1533804,-85.063147,2012,Guanacaste,Zona Norte
+523,Abangares,10.1533804,-85.063147,2014,Guanacaste,Zona Norte
+471,Abangares,10.1533804,-85.063147,2017,Guanacaste,Zona Norte
+2,Bagaces,10.4515451,-85.1975535,2014,Guanacaste,Zona Norte
+20,Cañas,10.425594,-85.1042498,2014,Guanacaste,Zona Norte
+506,Hojancha,10.0581068,-85.4294408,2001,Guanacaste,Zona Norte
+262,Hojancha,10.0581068,-85.4294408,2004,Guanacaste,Zona Norte
+416,Hojancha,10.0581068,-85.4294408,2012,Guanacaste,Zona Norte
+298,Hojancha,10.0581068,-85.4294408,2014,Guanacaste,Zona Norte
+343,Hojancha,10.0581068,-85.4294408,2017,Guanacaste,Zona Norte
+1,La Cruz,11.0706234,-85.6406165,2014,Guanacaste,Zona Norte
+405,Nandayure,9.9904687,-85.2541705,2001,Guanacaste,Zona Norte
+308,Nandayure,9.9904687,-85.2541705,2004,Guanacaste,Zona Norte
+309,Nandayure,9.9904687,-85.2541705,2012,Guanacaste,Zona Norte
+166,Nandayure,9.9904687,-85.2541705,2014,Guanacaste,Zona Norte
+245,Nandayure,9.9904687,-85.2541705,2017,Guanacaste,Zona Norte
+185,Nicoya,10.1494422,-85.4638911,2001,Guanacaste,Zona Norte
+142,Nicoya,10.1494422,-85.4638911,2004,Guanacaste,Zona Norte
+224,Nicoya,10.1494422,-85.4638911,2012,Guanacaste,Zona Norte
+252,Nicoya,10.1494422,-85.4638911,2014,Guanacaste,Zona Norte
+203,Nicoya,10.1494422,-85.4638911,2017,Guanacaste,Zona Norte
+57,Santa Cruz,10.2622597,-85.5925084,2001,Guanacaste,Zona Norte
+22,Santa Cruz,10.2622597,-85.5925084,2004,Guanacaste,Zona Norte
+54,Santa Cruz,10.2622597,-85.5925084,2012,Guanacaste,Zona Norte
+28,Santa Cruz,10.2622597,-85.5925084,2014,Guanacaste,Zona Norte
+57,Santa Cruz,10.2622597,-85.5925084,2017,Guanacaste,Zona Norte
+558,Tilarán,10.4613363,-84.9921049,2001,Guanacaste,Zona Norte
+285,Tilarán,10.4613363,-84.9921049,2004,Guanacaste,Zona Norte
+376,Tilarán,10.4613363,-84.9921049,2012,Guanacaste,Zona Norte
+332,Tilarán,10.4613363,-84.9921049,2014,Guanacaste,Zona Norte
+372,Tilarán,10.4613363,-84.9921049,2017,Guanacaste,Zona Norte
+17,Sarapiquí,10.4538691,-84.0628247,2001,Heredia,Zona Norte
+3,Sarapiquí,10.4538691,-84.0628247,2004,Heredia,Zona Norte
+2,Sarapiquí,10.4538691,-84.0628247,2012,Heredia,Zona Norte
+6,Sarapiquí,10.4538691,-84.0628247,2014,Heredia,Zona Norte
+32,Esparza,9.9907127,-84.6776737,2014,,Puntarenas,Zona Norte
+175,Montes de Oro,10.0918251,-84.7291317,2004,Puntarenas,Zona Norte
+109,Montes de Oro,10.0918251,-84.7291317,2012,Puntarenas,Zona Norte
+111,Montes de Oro,10.0918251,-84.7291317,2014,Puntarenas,Zona Norte
+43,Montes de Oro,10.0918251,-84.7291317,2017,Puntarenas,Zona Norte
+5,Puntarenas,9.9785924,-84.8428205,2001,Puntarenas,Zona Norte
+6,Puntarenas,9.9785924,-84.8428205,2004,Puntarenas,Zona Norte
+137,Puntarenas,9.9785924,-84.8428205,2012,Puntarenas,Zona Norte
+306,Puntarenas,9.9785924,-84.8428205,2014,Puntarenas,Zona Norte
+194,Puntarenas,9.9785924,-84.8428205,2017,Puntarenas,Zona Norte
+1989,Acosta,9.7993001,-84.1689755,2001,San José,Los Santos
+1356,Acosta,9.7993001,-84.1689755,2006,San José,Los Santos
+1850,Acosta,9.7993001,-84.1689755,2012,San José,Los Santos
+1808,Acosta,9.7993001,-84.1689755,2014,San José,Los Santos
+2455,Acosta,9.7993001,-84.1689755,2017,San José,Los Santos
+3407,Aserrí,9.8651069,-84.1042554,2001,San José,Los Santos
+3273,Aserrí,9.8651069,-84.1042554,2006,San José,Los Santos
+2869,Aserrí,9.8651069,-84.1042554,2012,San José,Los Santos
+2100,Aserrí,9.8651069,-84.1042554,2014,San José,Los Santos
+3833,Aserrí,9.8651069,-84.1042554,2017,San José,Los Santos
+3730,Desamparados,9.8956781,-84.0712126,2001,San José,Los Santos
+4437,Desamparados,9.8956781,-84.0712126,2006,San José,Los Santos
+3519,Desamparados,9.8956781,-84.0712126,2012,San José,Los Santos
+3043,Desamparados,9.8956781,-84.0712126,2014,San José,Los Santos
+3687,Desamparados,9.8956781,-84.0712126,2017,San José,Los Santos
+1034,Dota,9.5835571,-84.0689426,2001,San José,Los Santos
+1289,Dota,9.5835571,-84.0689426,2006,San José,Los Santos
+1444,Dota,9.5835571,-84.0689426,2012,San José,Los Santos
+1210,Dota,9.5835571,-84.0689426,2014,San José,Los Santos
+1741,Dota,9.5835571,-84.0689426,2017,San José,Los Santos
+4899,León Cortés,9.8758899,-84.3280547,2001,San José,Los Santos
+3818,León Cortés,9.8758899,-84.3280547,2006,San José,Los Santos
+4993,León Cortés,9.8758899,-84.3280547,2012,San José,Los Santos
+3109,León Cortés,9.8758899,-84.3280547,2014,San José,Los Santos
+6036,León Cortés,9.8758899,-84.3280547,2017,San José,Los Santos
+6403,Tarrazú,9.6030949,-84.153067,2001,San José,Los Santos
+4230,Tarrazú,9.6030949,-84.153067,2006,San José,Los Santos
+6086,Tarrazú,9.6030949,-84.153067,2012,San José,Los Santos
+4523,Tarrazú,9.6030949,-84.153067,2014,San José,Los Santos
+7085,Tarrazú,9.6030949,-84.153067,2017,San José,Los Santos
+2640,Cartago,9.8542894,-83.9663891,2001,Cartago,Los Santos
+2213,Cartago,9.8542894,-83.9663891,2006,Cartago,Los Santos
+2467,Cartago,9.8542894,-83.9663891,2012,Cartago,Los Santos
+2238,Cartago,9.8542894,-83.9663891,2014,Cartago,Los Santos
+2584,Cartago,9.8542894,-83.9663891,2017,Cartago,Los Santos
+236,El Guarco,9.8440161,-83.9624709,2001,Cartago,Los Santos
+617,El Guarco,9.8440161,-83.9624709,2006,Cartago,Los Santos
+308,El Guarco,9.8440161,-83.9624709,2012,Cartago,Los Santos
+421,El Guarco,9.8440161,-83.9624709,2014,Cartago,Los Santos
+515,El Guarco,9.8440161,-83.9624709,2017,Cartago,Los Santos
+9,Parrita,9.5206811,-84.3508391,2001,Puntarenas,Los Santos
+2,Parrita,9.5206811,-84.3508391,2006,Puntarenas,Los Santos
+5,Parrita,9.5206811,-84.3508391,2012,Puntarenas,Los Santos
+1,Parrita,9.5206811,-84.3508391,2014,Puntarenas,Los Santos
+9,Parrita,9.5206811,-84.3508391,2017,Puntarenas,Los Santos
+17157,Pérez Zeledón,9.3206821,-83.8703304,2001,San José,Pérez Zeledón
+13529,Pérez Zeledón,9.3206821,-83.8703304,2006,San José,Pérez Zeledón
+13114,Pérez Zeledón,9.3206821,-83.8703304,2012,San José,Pérez Zeledón
+12522,Pérez Zeledón,9.3206821,-83.8703304,2014,San José,Pérez Zeledón
+13315,Pérez Zeledón,9.3206821,-83.8703304,2017,San José,Pérez Zeledón
+17,Quepos,9.4592782,-84.2223324,2001,Puntarenas,Pérez Zeledón
+2,Quepos,9.4592782,-84.2223324,2012,Puntarenas,Pérez Zeledón
+1,Quepos,9.4592782,-84.2223324,2014,Puntarenas,Pérez Zeledón
+2384,Paraíso,9.8384179,-83.8806213,2001,Cartago,Turrialba
+2939,Paraíso,9.8384179,-83.8806213,2003,Cartago,Turrialba
+2009,Paraíso,9.8384179,-83.8806213,2012,Cartago,Turrialba
+3002,Paraíso,9.8384179,-83.8806213,2014,Cartago,Turrialba
+1419,Paraíso,9.8384179,-83.8806213,2017,Cartago,Turrialba
+250,Siquirres,10.1001059,-83.529533,2001,Limón,Turrialba
+97,Siquirres,10.1001059,-83.529533,2003,Limón,Turrialba
+110,Siquirres,10.1001059,-83.529533,2012,Limón,Turrialba
+112,Siquirres,10.1001059,-83.529533,2014,Limón,Turrialba
+15,Siquirres,10.1001059,-83.529533,2017,Limón,Turrialba
+8206,Turrialba,9.7932901,-83.7344604,2001,Cartago,Turrialba
+7934,Turrialba,9.7932901,-83.7344604,2003,Cartago,Turrialba
+3772,Turrialba,9.7932901,-83.7344604,2012,Cartago,Turrialba
+3859,Turrialba,9.7932901,-83.7344604,2014,Cartago,Turrialba
+2768,Turrialba,9.7932901,-83.7344604,2017,Cartago,Turrialba
+2219,Buenos Aires,9.1705888,-83.3418989,2001,Puntarenas,Coto Brus
+1431,Buenos Aires,9.1705888,-83.3418989,2003,Puntarenas,Coto Brus
+1501,Buenos Aires,9.1705888,-83.3418989,2012,Puntarenas,Coto Brus
+1943,Buenos Aires,9.1705888,-83.3418989,2014,Puntarenas,Coto Brus
+1518,Buenos Aires,9.1705888,-83.3418989,2017,Puntarenas,Coto Brus
+67,Corredores,8.5383506,-83.1041199,2001,Puntarenas,Coto Brus
+5,Corredores,8.5383506,-83.1041199,2012,Puntarenas,Coto Brus
+9,Corredores,8.5383506,-83.1041199,2014,Puntarenas,Coto Brus
+15,Corredores,8.5383506,-83.1041199,2017,Puntarenas,Coto Brus
+10810,Coto Brus,8.9540659,-83.0807037,2001,Puntarenas,Coto Brus
+10215,Coto Brus,8.9540659,-83.0807037,2003,Puntarenas,Coto Brus
+8141,Coto Brus,8.9540659,-83.0807037,2012,Puntarenas,Coto Brus
+8255,Coto Brus,8.9540659,-83.0807037,2014,Puntarenas,Coto Brus
+8727,Coto Brus,8.9540659,-83.0807037,2017,Puntarenas,Coto Brus
+4,Golfito,8.6299065,-83.1674071,2001,Puntarenas,Coto Brus
+22,Osa,8.5486576,-83.6690146,2001,Puntarenas,Coto Brus
+2,Osa,8.5486576,-83.6690146,2003,Puntarenas,Coto Brus
+7,Osa,8.5486576,-83.6690146,2012,Puntarenas,Coto Brus
+1,Osa,8.5486576,-83.6690146,2014,Puntarenas,Coto Brus
+

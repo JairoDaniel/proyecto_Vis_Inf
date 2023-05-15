@@ -37,7 +37,7 @@
         .style("opacity", 0);
 
       // Load external data and boot
-      d3.json("./costarica.geojson").then(function (data) {
+      d3.json("../data_src/costarica.geojson").then(function (data) {
         // Draw the map
         svg
           .append("g")
@@ -50,8 +50,17 @@
           .style("stroke-width", "0.5px");
       });
 
+      function addText(x, y, text, fontSize) {
+        console.log(text)
+        svg.append("text")
+          .attr("x", x)
+          .attr("y", y)
+          .attr("font-size", fontSize)
+          .text(text);
+      }
+
       function createCircles(year, province) {
-        d3.csv("./cafe_vc.csv").then((data) => {
+        d3.csv("../data_src/cafe_cr.csv").then((data) => {
           // Filter data for the specified year
           var filteredData = data.filter((d) => d.year === year && province.includes(d.province));
 
@@ -75,7 +84,6 @@
             .attr("cx", (d) => projection([d.lon, d.lat])[0])
             .attr("cy", (d) => projection([d.lon, d.lat])[1])
             .attr("r", (d) => Math.sqrt(d.area) / 2)
-            .attr("fill", (d) => d3.interpolateBrBG((d.area - 100) / 100));
         });
       }
 
@@ -177,6 +185,8 @@
       gTime.call(sliderTime);
 
       d3.select("p#value-time").text(d3.timeFormat("%Y")(sliderTime.value()));
+
+      
 
     </script>
   </body>

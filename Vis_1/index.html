@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+
+    <!-- Create an element where the map will take place -->
+    <svg id="my_dataviz" width="400" height="300"></svg>
+  </head>
+  <body>
+    <script>
+      //Width and height of map
+      var width = 1200;
+      var height = 1000;
+
+      // Map and projection
+      var projection = d3
+        .geoMercator()
+        .center([-84, 9]) // GPS of location to zoom on
+        .scale([12000]) // This is like the zoom
+        .translate([width / 2, height / 1.05]);
+      
+      // The svg
+      var svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      // Append Div for tooltip to SVG
+      var div = d3
+        .select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+      // Load external data and boot
+      d3.json("../data_src/cr.geojson").then(function (data) {
+        // Draw the map
+        svg
+          .append("g")
+          .selectAll("path")
+          .data(data.features)
+          .join("path")
+          .attr("fill", "white")
+          .attr("d", d3.geoPath().projection(projection))
+          .style("stroke", "black")
+          .style("stroke-width", "0.5px")
+          .on("mouseover", function(d, data) {
+            d3.select(this)
+            .attr("fill", "green")
+            .style("opacity", 0.7);
+
+            var province = ""
+            var width_cono = 0
+            var height_cono = 0
+            var year1 = "2001"
+            var year2 = "2006"
+
+            switch(data.id) {
+              case "01":
+                width_cono = 205
+                height_cono = 600
+                province = "San José"
+                break;
+              case "02":
+                width_cono = 75
+                height_cono = 370
+                province = "Alajuela"
+                break;
+              case "03":
+                width_cono = 285
+                height_cono = 600
+                province = "Cartago"
+                break;
+              case "04":
+                width_cono = 225
+                height_cono = 430
+                province = "Heredia"
+                break;
+              case "05":
+                width_cono = -95
+                height_cono = 375
+                province = "Guanacaste"
+                break;
+               case "06":
+                width_cono = 55
+                height_cono = 550
+                province = "Puntarenas"
+                break;
+              case "07":
+                width_cono = 350
+                height_cono = 525
+                province = "Limón"
+                break;
+            } 
+
+            d3.json("../data_src/"+province+".geojson").then(function (newdata) {
+
+              d3.csv("../data_src/cafe_pr.csv").then(function(data) {
+                // Define the color scale
+                var color = d3.scaleSequential()
+                  .domain(d3.extent(data, d => +d.area))
+                  .interpolator(d3.interpolateBrBG);
+                
+                // Add a new group for the new paths
+              var newGroup = svg.append("g").attr("class", "new-paths");
+
+              // Add the blue paths
+              newGroup.append("svg:image")
+                .attr("xlink:href", "../data_src/cono.png")
+                .attr("width", 768)
+                .attr("height", 192)
+                .attr("transform", `translate(${width_cono}, ${height_cono})`);
+
+              newGroup
+                .selectAll(".old-compare-path")
+                .data(newdata.features)
+                .join("path")
+                .attr("class", "old-compare-path")
+                .attr("fill", "blue")
+                .attr("fill", d => {
+                  var area = data.find(item => item.province === province && item.year === "2001");
+                  return area ? color(+area.area) : "gray";
+                })
+                .attr("d", d3.geoPath().projection(projection))
+                .style("stroke", "black")
+                .style("stroke-width", "2px")
+                .attr("transform", "translate(-200, -450)");
+
+              // Add the red paths
+              newGroup
+                .selectAll(".new-compare-path")
+                .data(newdata.features)
+                .join("path")
+                .attr("class", "new-compare-path")
+                .attr("fill", d => {
+                  var area = data.find(item => item.province === province && item.year === "2006");
+                  return area ? color(+area.area) : "gray";
+                })
+                .attr("d", d3.geoPath().projection(projection))
+                .style("stroke", "black")
+                .style("stroke-width", "2px")
+                .attr("transform", "translate(200, -450)");
+
+              });
+            });
+          })
+          .on("mouseout", function(d) {
+            // Select the path element and reset its opacity
+            d3.select(this)
+              .attr("fill", "white")
+              .style("opacity", 1.0);
+            
+              d3.selectAll(".new-paths").remove();
+          });
+          
+      });    
+
+    </script>
+  </body>
+</html>

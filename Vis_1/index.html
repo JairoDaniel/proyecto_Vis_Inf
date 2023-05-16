@@ -10,6 +10,26 @@
     <svg id="my_dataviz" width="400" height="300"></svg>
   </head>
   <body>
+    <select id="old-year-dd">
+      <option value="2001">2001</option>
+      <option value="2003">2003</option>
+      <option value="2004">2004</option>
+      <option value="2006">2006</option>
+      <option value="2012">2012</option>
+      <option value="2014">2014</option>
+      <option value="2017">2017</option>
+    </select>
+
+    <select id="new-year-dd">
+      <option value="2001">2001</option>
+      <option value="2003">2003</option>
+      <option value="2004">2004</option>
+      <option value="2006">2006</option>
+      <option value="2012">2012</option>
+      <option value="2014">2014</option>
+      <option value="2017">2017</option>
+    </select>
+    
     <script>
       //Width and height of map
       var width = 1200;
@@ -36,6 +56,12 @@
         .attr("class", "tooltip")
         .style("opacity", 0);
 
+      
+      var year1 = "2001"
+      var year2 = "2001"
+      var newSelectedValue = "0"
+      var oldSelectedValue = "0"
+
       // Load external data and boot
       d3.json("../data_src/cr.geojson").then(function (data) {
         // Draw the map
@@ -56,8 +82,8 @@
             var province = ""
             var width_cono = 0
             var height_cono = 0
-            var year1 = "2001"
-            var year2 = "2006"
+            year1 = oldSelectedValue;
+            year2 = newSelectedValue;
 
             switch(data.id) {
               case "01":
@@ -95,9 +121,11 @@
                 height_cono = 525
                 province = "Limón"
                 break;
-            } 
+            }
 
             d3.json("../data_src/"+province+".geojson").then(function (newdata) {
+
+              console.log(year1, year2)
 
               d3.csv("../data_src/cafe_pr.csv").then(function(data) {
                 // Define the color scale
@@ -122,7 +150,7 @@
                 .attr("class", "old-compare-path")
                 .attr("fill", "blue")
                 .attr("fill", d => {
-                  var area = data.find(item => item.province === province && item.year === "2001");
+                  var area = data.find(item => item.province === province && item.year === year1);
                   return area ? color(+area.area) : "gray";
                 })
                 .attr("d", d3.geoPath().projection(projection))
@@ -137,7 +165,7 @@
                 .join("path")
                 .attr("class", "new-compare-path")
                 .attr("fill", d => {
-                  var area = data.find(item => item.province === province && item.year === "2006");
+                  var area = data.find(item => item.province === province && item.year === year2);
                   return area ? color(+area.area) : "gray";
                 })
                 .attr("d", d3.geoPath().projection(projection))
@@ -158,6 +186,26 @@
           });
           
       });    
+
+      // Select the dropdown element
+
+      const old_dropdown = d3.select("#old-year-dd");
+      const new_dropdown = d3.select("#new-year-dd");
+      
+
+      old_dropdown.property("value", "0000");
+      new_dropdown.property("value", "0000");
+
+
+      // Add event listener using D3's `.on()` method
+      old_dropdown.on("change", function() {
+        oldSelectedValue = old_dropdown.property("value");
+      });
+
+      // Add event listener using D3's `.on()` method
+      new_dropdown.on("change", function() {
+        newSelectedValue = new_dropdown.property("value");
+      });
 
     </script>
   </body>

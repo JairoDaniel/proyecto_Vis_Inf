@@ -13,9 +13,9 @@
     <h1>Aréa de café sembrado en el país a través de los años</h1>
   </div>
   <div id="container">
-    <div id="left-side">
+    <div id="left-side-2">
       <div id="checkbox-container">
-        <h2>Provincias</h2>
+        <h3>Provincias</h3>
         <div class="row">
           <div class="col-sm-3">
             <label><input type="checkbox" value="San José">San José</label>
@@ -42,8 +42,9 @@
           </div>
         </div>
       </div>
+      <h3> Año</h3>
       <div id="slider-container"></div>
-      <h4> Escala</h1>
+      <h3> Escala</h3>
     </div>
 
     <div id="right-side">
@@ -194,7 +195,7 @@ createCircles(d3.timeFormat("%Y")(sliderTime.value()), verify_cb(checkboxes));
   imageDiv.appendChild(image);
 
   // Append the image container div to the left-side div
-  var leftSide = document.getElementById("left-side");
+  var leftSide = document.getElementById("left-side-2");
   leftSide.appendChild(imageDiv);
 </script>
 

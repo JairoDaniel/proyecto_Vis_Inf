@@ -11,9 +11,15 @@ body {
     display: flex;
   }
 
-  #left-side {
+  #left-side-1 {
     width: 30%;
-    margin-top: 20%;
+    margin-top: 15%;
+    margin-left: 15%;
+  }
+
+  #left-side-2 {
+    width: 30%;
+    margin-top: 5%;
     margin-left: 10%;
   }
 

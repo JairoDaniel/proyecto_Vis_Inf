@@ -49,6 +49,10 @@
     <div id="right-side">
       <!-- Element to put the map -->
       <svg id="my_dataviz"></svg>
+      <div id="title-text">
+        <h4>Ubicaciones</h4>
+      </div>
+      <div id="scrolling-text"></div>
     </div>
   </div>
 
@@ -112,6 +116,16 @@
         .attr("cx", (d) => projection([d.lon, d.lat])[0])
         .attr("cy", (d) => projection([d.lon, d.lat])[1])
         .attr("r", (d) => Math.sqrt(d.area) / 2);
+
+        var scrollingText = d3.select("#scrolling-text");
+        scrollingText.selectAll("p").remove();
+
+        scrollingText
+          .selectAll("p")
+          .data(filteredData)
+          .enter()
+          .append("p")
+          .text((d) => `\u{2615} Cantón: ${d.canton}. Hectareas sembradas: ${d.area}`);
     });
   }
 

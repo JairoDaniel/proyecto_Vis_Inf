@@ -100,8 +100,8 @@
             .style("opacity", 0.7);
 
             var province = ""
-            var width_cono = 0
-            var height_cono = 0
+            var width_zoom = 0
+            var height_zoom = 0
             var width_province_old = -175
             var height_province_old = -285
             var width_province_new = 200
@@ -111,47 +111,47 @@
             //Define the cone position in the graphic
             switch(data.id) {
               case "01":
-                width_cono = -230
-                height_cono = 120
+                width_zoom = -230
+                height_zoom = 120
                 width_province_old = -210
                 province = "San José"
                 break;
               case "02":
-                width_cono = -300
-                height_cono = -5
+                width_zoom = -300
+                height_zoom = -5
                 width_province_new = 230
                 province = "Alajuela"
                 break;
               case "03":
-                width_cono = -185
-                height_cono = 120
+                width_zoom = -185
+                height_zoom = 120
                 width_province_old = -210
                 height_province_old = -260
                 height_province_new = -260
                 province = "Cartago"
                 break;
               case "04":
-                width_cono = -225
-                height_cono = 20
+                width_zoom = -225
+                height_zoom = 20
                 width_province_old = -200
                 width_province_new = 210
                 province = "Heredia"
                 break;
               case "05":
-                width_cono = -435
-                height_cono = -5
+                width_zoom = -435
+                height_zoom = -5
                 width_province_old = -220
                 width_province_new = 190
                 province = "Guanacaste"
                 break;
                case "06":
-                width_cono = -230
-                height_cono = 190
+                width_zoom = -230
+                height_zoom = 190
                 province = "Puntarenas"
                 break;
               case "07":
-                width_cono = -150
-                height_cono = 70
+                width_zoom = -150
+                height_zoom = 70
                 width_province_old = -210
                 province = "Limón"
                 break;
@@ -170,10 +170,10 @@
 
                 // Add the cone image
                 newGroup.append("svg:image")
-                  .attr("xlink:href", "../data_src/cono.png")
+                  .attr("xlink:href", "../data_src/zoom.png")
                   .attr("width", 1536)
                   .attr("height", 384)
-                  .attr("transform", `translate(${width_cono}, ${height_cono})`);
+                  .attr("transform", `translate(${width_zoom}, ${height_zoom})`);
 
                 //Add the first compared province
                 newGroup

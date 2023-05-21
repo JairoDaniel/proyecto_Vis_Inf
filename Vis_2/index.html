@@ -1,90 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <!-- Load the libraries -->
-    <script src="https://d3js.org/d3.v6.js"></script>
-    <script src="https://unpkg.com/d3-simple-slider"></script>
+<head>
+  <meta charset="utf-8" />
+  <!-- Load the libraries -->
+  <script src="https://d3js.org/d3.v6.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider"></script>
 
-    <!-- Element to put the map -->
-    <svg id="my_dataviz" width="400" height="300"></svg>
-  </head>
-  <body>
-    <script>
-      //Width and height of map
-      var width = 1200;
-      var height = 1000;
-
-      // Map and projection
-      var projection = d3
-        .geoMercator()
-        .center([-84, 9]) // GPS of location to zoom on
-        .scale([12000]) // This is like the zoom
-        .translate([width / 2, height / 2]);
-      
-      // The svg
-      var svg = d3
-        .select("body")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-      // Append Div for tooltip to SVG
-      var div = d3
-        .select("body")
-        .append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
-
-      // Load Costa Rica map geojson
-      d3.json("../data_src/cr.geojson").then(function (data) {
-        // Draw the map
-        svg
-          .append("g")
-          .selectAll("path")
-          .data(data.features)
-          .join("path")
-          .attr("fill", "white")
-          .attr("d", d3.geoPath().projection(projection))
-          .style("stroke", "black")
-          .style("stroke-width", "0.5px");
-      });
-
-      function createCircles(year, province) {
-        //Load information
-        d3.csv("../data_src/cafe_cr.csv").then((data) => {
-          // Filter data for the specified year
-          var filteredData = data.filter((d) => d.year === year && province.includes(d.province));
-
-          // Select all existing circles and bind them to the filtered data
-          var circles = svg.selectAll("circle").data(filteredData);
-
-          // Remove circles that no longer have data associated
-          circles.exit().remove();
-
-          // Add new circles for data that doesn't have a corresponding circle yet
-          circles
-            .enter()
-            .append("circle")
-            .attr("cx", (d) => projection([d.lon, d.lat])[0])
-            .attr("cy", (d) => projection([d.lon, d.lat])[1])
-            .attr("r", (d) => Math.sqrt(d.area) / 2)
-            .attr("fill", (d) => d3.interpolateBrBG((d.area - 100) / 100));
-
-          // Update the attributes of all circles (new and existing)
-          circles
-            .attr("cx", (d) => projection([d.lon, d.lat])[0])
-            .attr("cy", (d) => projection([d.lon, d.lat])[1])
-            .attr("r", (d) => Math.sqrt(d.area) / 2);
-        });
-      }
-
-      // Checkbox element
-      const group_cb = svg.append("g").attr("transform", "translate(0, 700)");
-
-      // Create a container element for the HTML code
-      const container_cb = document.createElement("div");
-      container_cb.innerHTML = `
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+  <div id="title">
+    <h1>Aréa de café sembrado en el país a través de los años</h1>
+  </div>
+  <div id="container">
+    <div id="left-side-2">
+      <div id="checkbox-container">
+        <h3>Provincias</h3>
         <div class="row">
           <div class="col-sm-3">
             <label><input type="checkbox" value="San José">San José</label>
@@ -109,75 +40,164 @@
           <div class="col-sm-3">
             <label><input type="checkbox" value="Limón">Limón</label>
           </div>
-        </div>`;
+        </div>
+      </div>
+      <h3> Año</h3>
+      <div id="slider-container"></div>
+      <h3> Escala</h3>
+    </div>
 
-      // Add the container element to the foreignObject element
-      group_cb
-        .append("foreignObject")
-        .attr("width", 400)
-        .attr("height", 200)
-        .html(container_cb.outerHTML);
-    
-      //Function to check the checkbox's value
-      function verify_cb(checkboxSelection) {
-        const checkedValues = checkboxSelection.filter(":checked").nodes().map(n => n.value);
-        return checkedValues;
-      }
+    <div id="right-side">
+      <!-- Element to put the map -->
+      <svg id="my_dataviz"></svg>
+      <div id="title-text">
+        <h4>Ubicaciones</h4>
+      </div>
+      <div id="scrolling-text"></div>
+    </div>
+  </div>
 
-      // Select all the checkboxes and call the function
-      const checkboxes = d3.selectAll("input[type=checkbox]");
+  <script>
+    //Width and height of map
+    var width = 1200;
+    var height = 1000;
+
+    // Map and projection
+    var projection = d3
+      .geoMercator()
+      .center([-84, 9]) // GPS of location to zoom on
+      .scale([12000]) // This is like the zoom
+      .translate([width / 2, height / 2]);
+
+    // The svg
+    var svg = d3
+      .select("#my_dataviz")
+      .attr("width", width)
+      .attr("height", height);
+  </script>
+
+<script>
+  // Load Costa Rica map geojson
+  d3.json("../data_src/cr.geojson").then(function (data) {
+    // Draw the map
+    svg
+      .append("g")
+      .selectAll("path")
+      .data(data.features)
+      .join("path")
+      .attr("fill", "white")
+      .attr("d", d3.geoPath().projection(projection))
+      .style("stroke", "black")
+      .style("stroke-width", "0.5px");
+  });
+
+  function createCircles(year, province) {
+    //Load information
+    d3.csv("../data_src/cafe_cr.csv").then((data) => {
+      // Filter data for the specified year
+      var filteredData = data.filter((d) => d.year === year && province.includes(d.province));
+
+      // Select all existing circles and bind them to the filtered data
+      var circles = svg.selectAll("circle").data(filteredData);
+
+      // Remove circles that no longer have data associated
+      circles.exit().remove();
+
+      // Add new circles for data that doesn't have a corresponding circle yet
+      circles
+        .enter()
+        .append("circle")
+        .attr("cx", (d) => projection([d.lon, d.lat])[0])
+        .attr("cy", (d) => projection([d.lon, d.lat])[1])
+        .attr("r", (d) => Math.sqrt(d.area) / 2)
+        .attr("fill", (d) => d3.interpolateBrBG((d.area - 100) / 100));
+
+      // Update the attributes of all circles (new and existing)
+      circles
+        .attr("cx", (d) => projection([d.lon, d.lat])[0])
+        .attr("cy", (d) => projection([d.lon, d.lat])[1])
+        .attr("r", (d) => Math.sqrt(d.area) / 2);
+
+        var scrollingText = d3.select("#scrolling-text");
+        scrollingText.selectAll("p").remove();
+
+        scrollingText
+          .selectAll("p")
+          .data(filteredData)
+          .enter()
+          .append("p")
+          .text((d) => `\u{2615} Cantón: ${d.canton}. Hectareas sembradas: ${d.area}`);
+    });
+  }
+
+  //Function to check the checkbox's value
+  function verify_cb(checkboxSelection) {
+    const checkedValues = checkboxSelection.filter(":checked").nodes().map(n => n.value);
+    return checkedValues;
+  }
+
+  // Select all the checkboxes and call the function
+  const checkboxes = d3.selectAll("input[type=checkbox]");
 
       // Slider
-      const group = svg.append("g").attr("transform", "translate(0, 500)");
+      const sliderContainer = d3.select("#slider-container"); // Select the container for the slider
 
-      // Container for the slider HTML code
-      const container = document.createElement("div");
-      container.innerHTML = `
-        <div class="row align-items-center">
-          <div class="col-sm"><div id="slider-time"></div></div>
-          <div class="col-sm-2"><p id="value-time"></p></div>
-        </div>`;
+// years on the slider
+const years = ["2001", "2003", "2004", "2006", "2012", "2014", "2017", "2018"];
+const dataTime = years.map((year) => new Date(parseInt(year), 0, 1));
 
-      // Add the container to the svg as a foreign Object
-      group
-        .append("foreignObject")
-        .attr("width", 400)
-        .attr("height", 200)
-        .html(container.outerHTML);
+const sliderTime = d3
+  .sliderBottom()
+  .min(d3.min(dataTime))
+  .max(d3.max(dataTime))
+  .step(1000 * 60 * 60 * 24 * 365)
+  .width(300)
+  .tickFormat(d3.timeFormat("%Y"))
+  .tickValues(dataTime)
+  .default(new Date(1998, 10, 3))
+  .on("onchange", (val) => {
+    d3.select("p#value-time").text("Año seleccionado: " + d3.timeFormat("%Y")(val));
+    var year = d3.timeFormat("%Y")(val);
+    createCircles(year, verify_cb(checkboxes));
+  });
 
+sliderContainer
+  .append("svg")
+  .attr("width", 500)
+  .attr("height", 100)
+  .append("g")
+  .attr("transform", "translate(30,30)")
+  .call(sliderTime);
 
+sliderContainer
+  .append("p")
+  .attr("id", "value-time")
+  .text("Año seleccionado: " + d3.timeFormat("%Y")(sliderTime.value()));
 
-      // years on the slider
-      years = ["2001", "2003", "2004", "2006", "2012", "2014", "2017", "2018"];
-      var dataTime = years.map((year) => new Date(parseInt(year), 0, 1));
+createCircles(d3.timeFormat("%Y")(sliderTime.value()), verify_cb(checkboxes));
 
-      var sliderTime = d3
-        .sliderBottom()
-        .min(d3.min(dataTime))
-        .max(d3.max(dataTime))
-        .step(1000 * 60 * 60 * 24 * 365)
-        .width(300)
-        .tickFormat(d3.timeFormat("%Y"))
-        .tickValues(dataTime)
-        .default(new Date(1998, 10, 3))
-        .on("onchange", (val) => {
-          d3.select("p#value-time").text(d3.timeFormat("%Y")(val));
-          var year = d3.timeFormat("%Y")(val);
-          createCircles(year, verify_cb(checkboxes));
-        });
+</script>
 
-      var gTime = d3
-        .select("div#slider-time")
-        .append("svg")
-        .attr("width", 500)
-        .attr("height", 100)
-        .append("g")
-        .attr("transform", "translate(30,30)");
+<script>
+  // Create and append the image container div
+  var imageDiv = document.createElement("div");
+  imageDiv.classList.add("image-container");
 
-      gTime.call(sliderTime);
+  // Create and set the image element
+  var image = document.createElement("img");
+  image.src = "../data_src/brbg.png";
+  image.alt = "Visualization color scale";
+  image.style.width = "250px";
+  image.style.height = "auto";
+  image.style.float = "left"; 
 
-      d3.select("p#value-time").text(d3.timeFormat("%Y")(sliderTime.value()));
+  // Append the image to the image container div
+  imageDiv.appendChild(image);
 
-    </script>
-  </body>
+  // Append the image container div to the left-side div
+  var leftSide = document.getElementById("left-side-2");
+  leftSide.appendChild(imageDiv);
+</script>
+
+</body>
 </html>

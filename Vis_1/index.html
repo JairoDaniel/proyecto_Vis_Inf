@@ -5,48 +5,64 @@
     <!-- Load the libraries -->
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://unpkg.com/d3-simple-slider"></script>
-
-    <!-- Element to put the map -->
-    <svg id="my_dataviz" width="400" height="300"></svg>
+  
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
   <body>
-    <!-- Old year compare dropdown -->
-    <select id="old-year-dd">
-      <option value="2001">2001</option>
-      <option value="2003">2003</option>
-      <option value="2004">2004</option>
-      <option value="2006">2006</option>
-      <option value="2012">2012</option>
-      <option value="2014">2014</option>
-      <option value="2017">2017</option>
-    </select>
-    <!-- New year compare dropdown -->
-    <select id="new-year-dd">
-      <option value="2001">2001</option>
-      <option value="2003">2003</option>
-      <option value="2004">2004</option>
-      <option value="2006">2006</option>
-      <option value="2012">2012</option>
-      <option value="2014">2014</option>
-      <option value="2017">2017</option>
-    </select>
-    
+    <div id="title">
+      <h1>Comparación del área de café sembrado por provincia y año</h1>
+    </div>
+    <div id="container">
+      <div id="left-side-1">
+        <div class="dropdown-container">
+          <h4>Primer año</h4>
+          <select id="old-year-dd">
+            <option value="2001">2001</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2006">2006</option>
+            <option value="2012">2012</option>
+            <option value="2014">2014</option>
+            <option value="2017">2017</option>
+          </select>
+        </div>
+        <div class="dropdown-container">
+          <h4>Segundo año</h4>
+          <select id="new-year-dd">
+            <option value="2001">2001</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2006">2006</option>
+            <option value="2012">2012</option>
+            <option value="2014">2014</option>
+            <option value="2017">2017</option>
+          </select>
+        </div>
+        <h4>Escala</h4>
+      </div>
+      
+  
+      <div id="right-side">
+        <!-- Element to put the map -->
+        <svg id="my_dataviz"></svg>
+      </div>
+    </div>
+  
     <script>
       //Width and height of map
-      var width = 1200;
-      var height = 1000;
+      var width = 600;
+      var height = 500;
 
       // Map and projection
       var projection = d3
         .geoMercator()
         .center([-84, 9]) // GPS of location to zoom on
-        .scale([12000]) // This is like the zoom
-        .translate([width / 2, height / 1.05]);
+        .scale([8000]) // This is like the zoom
+        .translate([width / 1.1, height / 0.8]);
       
       // The svg
       var svg = d3
-        .select("body")
-        .append("svg")
+        .select("#my_dataviz")
         .attr("width", width)
         .attr("height", height);
 
@@ -60,10 +76,13 @@
       
       var year1 = "2001"
       var year2 = "2001"
+      var area1 = "0"
+      var area2 = "0"
       var newSelectedValue = "0"
       var oldSelectedValue = "0"
-
-      // Load Costa Rica map geojson
+    </script>
+    <script>
+            // Load Costa Rica map geojson
       d3.json("../data_src/cr.geojson").then(function (data) {
         // Draw the map
         svg
@@ -81,45 +100,59 @@
             .style("opacity", 0.7);
 
             var province = ""
-            var width_cono = 0
-            var height_cono = 0
+            var width_zoom = 0
+            var height_zoom = 0
+            var width_province_old = -175
+            var height_province_old = -285
+            var width_province_new = 200
+            var height_province_new = -285
             year1 = oldSelectedValue;
             year2 = newSelectedValue;
             //Define the cone position in the graphic
             switch(data.id) {
               case "01":
-                width_cono = 205
-                height_cono = 600
+                width_zoom = -230
+                height_zoom = 120
+                width_province_old = -210
                 province = "San José"
                 break;
               case "02":
-                width_cono = 75
-                height_cono = 370
+                width_zoom = -300
+                height_zoom = -5
+                width_province_new = 230
                 province = "Alajuela"
                 break;
               case "03":
-                width_cono = 285
-                height_cono = 600
+                width_zoom = -185
+                height_zoom = 120
+                width_province_old = -210
+                height_province_old = -260
+                height_province_new = -260
                 province = "Cartago"
                 break;
               case "04":
-                width_cono = 225
-                height_cono = 430
+                width_zoom = -225
+                height_zoom = 20
+                width_province_old = -200
+                width_province_new = 210
                 province = "Heredia"
                 break;
               case "05":
-                width_cono = -95
-                height_cono = 375
+                width_zoom = -435
+                height_zoom = -5
+                width_province_old = -220
+                width_province_new = 190
                 province = "Guanacaste"
                 break;
                case "06":
-                width_cono = 55
-                height_cono = 550
+                width_zoom = -230
+                height_zoom = 190
                 province = "Puntarenas"
                 break;
               case "07":
-                width_cono = 350
-                height_cono = 525
+                width_zoom = -150
+                height_zoom = 70
+                width_province_old = -210
                 province = "Limón"
                 break;
             }
@@ -137,10 +170,10 @@
 
                 // Add the cone image
                 newGroup.append("svg:image")
-                  .attr("xlink:href", "../data_src/cono.png")
-                  .attr("width", 768)
-                  .attr("height", 192)
-                  .attr("transform", `translate(${width_cono}, ${height_cono})`);
+                  .attr("xlink:href", "../data_src/zoom.png")
+                  .attr("width", 1536)
+                  .attr("height", 384)
+                  .attr("transform", `translate(${width_zoom}, ${height_zoom})`);
 
                 //Add the first compared province
                 newGroup
@@ -151,12 +184,13 @@
                   .attr("fill", "blue")
                   .attr("fill", d => {
                     var area = data.find(item => item.province === province && item.year === year1);
+                    area2 = area?.area ?? "0";
                     return area ? color(+area.area) : "gray";
                   })
                   .attr("d", d3.geoPath().projection(projection))
                   .style("stroke", "black")
                   .style("stroke-width", "2px")
-                  .attr("transform", "translate(-200, -450)");
+                  .attr("transform", `translate(${width_province_old}, ${height_province_old})`);
 
                 //Add the second compared province
                 newGroup
@@ -166,12 +200,39 @@
                   .attr("class", "new-compare-path")
                   .attr("fill", d => {
                     var area = data.find(item => item.province === province && item.year === year2);
+                    area2 = area?.area ?? "0";
                     return area ? color(+area.area) : "gray";
                   })
                   .attr("d", d3.geoPath().projection(projection))
                   .style("stroke", "black")
                   .style("stroke-width", "2px")
-                  .attr("transform", "translate(200, -450)");
+                  .attr("transform", `translate(${width_province_new}, ${height_province_new})`);
+
+                // Add the box
+                var textBox = newGroup.append("rect")
+                  .attr("x", 260) // Adjust the x position of the box
+                  .attr("y", 600) // Adjust the y position of the box
+                  .attr("width", 250) // Adjust the width of the box
+                  .attr("height", 90) // Adjust the height of the box
+                  .style("fill", "white")
+                  .style("stroke", "black")
+                  .style("stroke-width", "1px");
+
+                // Add the text inside the box
+                newGroup.append("text")
+                  .attr("x", 410) // Adjust the x position of the text
+                  .attr("y", 610) // Adjust the y position of the text
+                  .attr("text-anchor", "middle") // Set alignment to the middle
+                  .style("font-size", "20px") // Adjust font size as needed
+                  .style("font-weight", "bold")
+                  .style("fill", "black")
+                  .selectAll("tspan")
+                  .data((`Hectareas Cultivadas \n Año ${year1}:  ${area1} \n Año ${year2}: ${area2}`).split("\n")) // Split the text by line breaks
+                  .enter()
+                  .append("tspan")
+                  .attr("x", 390) // Adjust the x position of the text within the box
+                  .attr("dy", "1em") // Adjust the line spacing as needed
+                  .text(d => d);
                 });
               });
             })
@@ -206,6 +267,25 @@
         newSelectedValue = new_dropdown.property("value");
       });
 
+    </script>
+    <script>
+      // Create and append the image container div
+      var imageDiv = document.createElement("div");
+      imageDiv.classList.add("image-container");
+    
+      // Create and set the image element
+      var image = document.createElement("img");
+      image.src = "../data_src/brbg.png";
+      image.alt = "Visualization color scale";
+      image.style.width = "250px"; // Adjust the width as needed
+      image.style.height = "auto"; // Maintain aspect ratio
+    
+      // Append the image to the image container div
+      imageDiv.appendChild(image);
+    
+      // Append the image container div to the left-side div
+      var leftSide = document.getElementById("left-side-1");
+      leftSide.appendChild(imageDiv);
     </script>
   </body>
 </html>

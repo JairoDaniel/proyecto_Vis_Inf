@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../data_src/coffe_bg.jpg");
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #container {
+    display: flex;
+  }
+
+  #left-side {
+    width: 30%;
+    margin-top: 20%;
+    margin-left: 10%;
+  }
+
+  #right-side {
+    width: 70%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  #my_dataviz {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #title {
+    text-align: center;
+  }

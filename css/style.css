@@ -1,60 +1,74 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../data_src/coffe_bg.jpg");
-    background-size: cover; /* Adjust as needed */
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
+  margin: 0;
+  padding: 0;
+  background-image: url("../data_src/coffe_bg.jpg");
+  background-size: cover; /* Adjust as needed */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
 
-  #container {
-    display: flex;
-  }
+#container {
+  display: flex;
+}
 
-  #left-side-1 {
-    width: 30%;
-    margin-top: 15%;
-    margin-left: 15%;
-  }
+#left-side-1 {
+  width: 30%;
+  margin-top: 15%;
+  margin-left: 15%;
+}
 
-  #left-side-2 {
-    width: 30%;
-    margin-top: 5%;
-    margin-left: 10%;
-  }
+#left-side-2 {
+  width: 30%;
+  margin-top: 5%;
+  margin-left: 10%;
+}
 
-  #right-side {
-    width: 70%;
-    margin-top: 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  }
+#right-side {
+  width: 70%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
 
-  #my_dataviz {
-    width: 100%;
-    height: 100vh;
-  }
+#my_dataviz {
+  width: 100%;
+  height: 100vh;
+}
 
-  #title {
-    text-align: center;
-  }
+#title {
+  text-align: center;
+}
 
-  #title-text {
-    text-align: center;
-    position: absolute;
-    left: 48%;
-    top: 62%; 
-  }
+#title-text {
+  text-align: center;
+  position: absolute;
+  left: 48%;
+  top: 62%; 
+}
 
-  #scrolling-text {
-    height: 20%;
-    width: 10%;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: white;
-    position: absolute;
-    left: 48%;
-    top: 68%; 
-  }
+#scrolling-text {
+  height: 20%;
+  width: 10%;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  left: 48%;
+  top: 68%; 
+}
+
+a:link, a:visited {
+  background-color: #0b7c3a;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: green;
+}

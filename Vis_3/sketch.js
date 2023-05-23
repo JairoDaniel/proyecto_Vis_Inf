@@ -16,14 +16,28 @@ let numbers_2020 = [];
 let numbers_2021 = [];
 let numbers_2022 = [];
 let selector;
+let magic_value = 35;
+let events = [
+  { year: 2017, description: "2017" },
+  { year: 2018, description: "2018" },
+  { year: 2019, description: "2019" },
+  { year: 2020, description: "2020" },
+  { year: 2021, description: "2021" },
+  { year: 2022, description: "2022" }
+];
+
 
 function preload() {
   table = loadTable('../data_src/CRI_PIB.csv', 'csv', 'header');
 }
 
 function setup() {
-  colorMode(HSB, 105); //it's just nicer this way... you know...
-  canvas1=createCanvas(1600, 800);
+  colorMode(RGB); //it's just nicer this way... you know...
+  let pastelBlue = color(144, 202, 249);
+  let pastelPink = color(249, 168, 186);
+  let pastelGreen = color(185, 249, 202);
+
+  canvas1=createCanvas(windowWidth, windowHeight);
   canvas1.position(100, 250);
   //noLoop();
   smooth();
@@ -35,33 +49,39 @@ function setup() {
   let id_2021 = 4;
   let id_2022 = 5;
   let coffe_contribution = 0.0;
+  let lamda = 1.0;
   //cycle through the table
   for (let r = 0; r < table.getRowCount(); r++) {
     for (let c = 0; c < table.getColumnCount(); c++) {
       if ((c == 1) || (c == 5)){
         coffe_contribution = 0.0;
+        lamda = 1;
         if (c == 1)
         {
-          coffe_contribution = float(table.getString(r, 5))
+          coffe_contribution = float(table.getString(r, 5)) * magic_value;
+        }
+
+        if (c == 5) {
+          lamda = magic_value;
         }
 
         if (r == id_2017) {
-          append(numbers_2017,  float(table.getString(r, c)) - coffe_contribution);
+          append(numbers_2017,  float(table.getString(r, c))*lamda - coffe_contribution);
         }
         else if (r == id_2018) {
-          append(numbers_2018,  float(table.getString(r, c)) - coffe_contribution);
+          append(numbers_2018,  float(table.getString(r, c))*lamda  - coffe_contribution);
         }
         else if (r == id_2019) {
-          append(numbers_2019,  float(table.getString(r, c)) - coffe_contribution);
+          append(numbers_2019,  float(table.getString(r, c))*lamda  - coffe_contribution);
         }
         else if (r == id_2020) {
-          append(numbers_2020,  float(table.getString(r, c)) - coffe_contribution);
+          append(numbers_2020,  float(table.getString(r, c))*lamda  - coffe_contribution);
         }
         else if (r == id_2021) {
-          append(numbers_2021,  float(table.getString(r, c)) - coffe_contribution);
+          append(numbers_2021,  float(table.getString(r, c))*lamda  - coffe_contribution);
         }
         else if (r == id_2022) {
-          append(numbers_2022,  float(table.getString(r, c)) - coffe_contribution);
+          append(numbers_2022,  float(table.getString(r, c))*lamda  - coffe_contribution);
         }
       }
     }
@@ -69,27 +89,52 @@ function setup() {
 
   numbers = numbers_2017;
   nbItems = numbers.length;
-  calculate(410, 10);
+  calculate(width / 2 - 675, 10);
 
   numbers = numbers_2018;
   nbItems = numbers.length;
-  calculate(610, 10);
+  calculate(width / 2 - 440, 10);
 
   numbers = numbers_2019;
   nbItems = numbers.length;
-  calculate(810, 10);
+  calculate(width / 2 - 215, 10);
 
   numbers = numbers_2020;
   nbItems = numbers.length;
-  calculate(1010, 10);
+  calculate(width / 2 + 25, 10);
 
   numbers = numbers_2021;
   nbItems = numbers.length;
-  calculate(1210, 10);
+  calculate(width / 2 + 250, 10);
 
   numbers = numbers_2022;
   nbItems = numbers.length;
-  calculate(1410, 10);
+  calculate(width / 2 + 475, 10);
+
+  // Calculate center position
+  let centerX = width / 2;
+  let centerY = height / 2 - 425;
+
+  // Calculate line length
+  let lineLength = 1200;
+
+  // Draw timeline line
+  stroke(0);
+  line(centerX - lineLength / 2, centerY, centerX + lineLength / 2, centerY);
+
+  // Draw events
+  for (let i = 0; i < events.length; i++) {
+    let x = map(events[i].year, 2017, 2022, centerX - lineLength / 2, centerX + lineLength / 2);
+
+    // Draw tick marks
+    stroke(0);
+    line(x, centerY - 5, x, centerY + 5);
+
+    // Draw event labels
+    textAlign(CENTER, CENTER);
+    noStroke();
+    text(events[i].description, x, centerY + 20);
+  }
 }
 
 
@@ -98,13 +143,13 @@ function setup() {
 //  setup();
 //}
 
-function drawRect(x1, y1, w1, h1, value) {
+function drawRect(x1, y1, w1, h1, value, color) {
   let hStart = 50 - 0.1;
   let hEnd = 50 + 0.1;
-  let h = random(hStart, hEnd);
-  let s = random(7, 100);
-  let b = random(90, 70);
-  fill(h, s, b);
+  let h = random(170, 205);
+  let s = random(120, 193);
+  let b = random(140, 163);
+  fill(color);
   rect(x1, y1, w1, h1); //we draw a rectangle    
   fill(1);
   //  text(str(value), x1+6, y1+20);  (we don't care about the actual value now that we have the pcnt...)
@@ -198,7 +243,7 @@ function calculate(refX, refY) {
   //let refX = 10;
   //let refY = 10;
   let blockWidth = 200;
-  let blockHeigh = 200;
+  let blockHeigh = 240;
   let blockW = blockWidth - 20;
   let blockH = blockHeigh - 20;
 
@@ -288,7 +333,7 @@ function makeBlock(refX, refY, blockW, blockH, numbers) {
   } else {
     //if it's done, we add the B to display list, and that's it for recussivity, we return to main level... 
     // the main function will then deal with all the data...
-    drawRect(xA, yA, widthA, heightA, valueA);
+    drawRect(xA, yA, widthA, heightA, valueA + valueB - (valueB / magic_value), "#35978f");
   }
 
   if (numbersB.length >= 2) { //this mean there is still stuff in this arary...
@@ -296,7 +341,7 @@ function makeBlock(refX, refY, blockW, blockH, numbers) {
   } else {
     //if it's done, we add the B to display list, and that's it for recussivity, we return to main level... 
     // the main function will then deal with all the data...
-    drawRect(xB, yB, widthB, heightB, valueB);
+    drawRect(xB, yB, widthB, heightB, valueB / magic_value, "#C78F56");
   }
 
   //If it represent more than one value, we send the block B to be split again (recursivly)

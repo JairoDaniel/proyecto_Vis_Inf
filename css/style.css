@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+  font-family: sans-serif;
 }
 
 #container {
@@ -61,7 +62,7 @@ body {
 }
 
 a:link, a:visited {
-  background-color: #0b7c3a;
+  background-color: #01665e;
   color: white;
   padding: 14px 25px;
   text-align: center;
@@ -70,5 +71,5 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  background-color: green;
+  background-color: #80cdc1;
 }

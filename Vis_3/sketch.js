@@ -40,6 +40,8 @@ function setup() {
   let pastelPink = color(249, 168, 186);
   let pastelGreen = color(185, 249, 202);
 
+  width = windowWidth;
+  height = windowHeight;
   canvas1=createCanvas(windowWidth, windowHeight);
   canvas1.position(100, 250);
   //noLoop();
@@ -116,7 +118,7 @@ function setup() {
 
   // Calculate center position
   let centerX = width / 2;
-  let centerY = height / 2 - 425;
+  let centerY = height / 2 - 240;
 
   // Calculate line length
   let lineLength = 1200;
@@ -141,8 +143,8 @@ function setup() {
 
   img_color_bar.resize(350, 30);
 
-  text('Escala:', 155, 20);
-  image(img_color_bar, 130, 30);
+  text('Escala:', 25, 20);
+  image(img_color_bar, 0, 30);
 
   let items = ["2017:",
                "PIB:"+"  ₡"+table.getString(id_2017, 1),
@@ -177,7 +179,7 @@ function setup() {
 
   let textDiv = createDiv(textContent);
   textDiv.parent('text-container');
-  textDiv.position(230, 335);
+  textDiv.position(100, 330);
   textDiv.style('text-align', 'left');
   textDiv.style('line-height', lineHeight + 'px');
   textDiv.style('font-size', '16px');

@@ -118,7 +118,7 @@ function setup() {
 
   // Calculate center position
   let centerX = width / 2;
-  let centerY = height / 2 - 240;
+  let centerY = height / 2 - 250;
 
   // Calculate line length
   let lineLength = 1200;
@@ -141,9 +141,9 @@ function setup() {
     text(events[i].description, x, centerY + 20);
   }
 
-  img_color_bar.resize(350, 30);
+  img_color_bar.resize(250, 30);
 
-  text('Escala:', 25, 20);
+  text('Escala:', 30, 20);
   image(img_color_bar, 0, 30);
 
   let items = ["2017:",
@@ -184,7 +184,7 @@ function setup() {
   textDiv.style('line-height', lineHeight + 'px');
   textDiv.style('font-size', '16px');
   textDiv.style('background-color', 'white');
-  textDiv.size(350, 700);
+  textDiv.size(250, 700);
 }
 
 

@@ -17,6 +17,7 @@ let numbers_2021 = [];
 let numbers_2022 = [];
 let selector;
 let magic_value = 35;
+let img_color_bar;
 let events = [
   { year: 2017, description: "2017" },
   { year: 2018, description: "2018" },
@@ -29,9 +30,11 @@ let events = [
 
 function preload() {
   table = loadTable('../data_src/CRI_PIB.csv', 'csv', 'header');
+  img_color_bar = loadImage('../data_src/brbg.png');
 }
 
 function setup() {
+  textSize(16);
   colorMode(RGB); //it's just nicer this way... you know...
   let pastelBlue = color(144, 202, 249);
   let pastelPink = color(249, 168, 186);
@@ -135,6 +138,51 @@ function setup() {
     noStroke();
     text(events[i].description, x, centerY + 20);
   }
+
+  img_color_bar.resize(350, 30);
+
+  text('Escala:', 155, 20);
+  image(img_color_bar, 130, 30);
+
+  let items = ["2017:",
+               "PIB:"+"  ₡"+table.getString(id_2017, 1),
+               "Café:"+"  ₡"+table.getString(id_2017, 5),
+               "",
+               "2018:",
+               "PIB:"+"  ₡"+table.getString(id_2018, 1),
+               "Café:"+"  ₡"+table.getString(id_2018, 5),
+               "",
+               "2019:",
+               "PIB:"+"  ₡"+table.getString(id_2018, 1),
+               "Café:"+"  ₡"+table.getString(id_2019, 5),
+               "",
+               "2020:",
+               "PIB:"+"  ₡"+table.getString(id_2020, 1),
+               "Café:"+"  ₡"+table.getString(id_2020, 5),
+               "",
+               "2021:",
+               "PIB:"+"  ₡"+table.getString(id_2021, 1),
+               "Café:"+"  ₡"+table.getString(id_2021, 5),
+               "",
+               "2022:",
+               "PIB:"+"  ₡"+table.getString(id_2022, 1),
+               "Café:"+"  ₡"+table.getString(id_2022, 5)];
+  let lineHeight = 30;
+
+  let textContent = "";
+  for (let i = 0; i < items.length; i++) {
+    let listItem = items[i];
+    textContent += listItem + "<br>";
+  }
+
+  let textDiv = createDiv(textContent);
+  textDiv.parent('text-container');
+  textDiv.position(230, 335);
+  textDiv.style('text-align', 'left');
+  textDiv.style('line-height', lineHeight + 'px');
+  textDiv.style('font-size', '16px');
+  textDiv.style('background-color', 'white');
+  textDiv.size(350, 700);
 }
 
 

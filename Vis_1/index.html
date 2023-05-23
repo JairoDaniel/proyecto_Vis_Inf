@@ -5,14 +5,17 @@
     <!-- Load the libraries -->
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://unpkg.com/d3-simple-slider"></script>
-  
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
   </head>
   <body>
     <div id="title">
       <h1>Comparación del área de café sembrado por provincia y año</h1>
     </div>
     <div id="container">
+      <div>
+        <a href="../index.html">&#x2615 Menú principal</a>
+      </div>
       <div id="left-side-1">
         <div class="dropdown-container">
           <h4>Primer año</h4>
@@ -40,14 +43,13 @@
         </div>
         <h4>Escala</h4>
       </div>
-      
-  
+
       <div id="right-side">
         <!-- Element to put the map -->
         <svg id="my_dataviz"></svg>
       </div>
     </div>
-  
+
     <script>
       //Width and height of map
       var width = 600;
@@ -59,7 +61,7 @@
         .center([-84, 9]) // GPS of location to zoom on
         .scale([8000]) // This is like the zoom
         .translate([width / 1.1, height / 0.8]);
-      
+
       // The svg
       var svg = d3
         .select("#my_dataviz")
@@ -73,16 +75,15 @@
         .attr("class", "tooltip")
         .style("opacity", 0);
 
-      
-      var year1 = "2001"
-      var year2 = "2001"
-      var area1 = "0"
-      var area2 = "0"
-      var newSelectedValue = "0"
-      var oldSelectedValue = "0"
+      var year1 = "2001";
+      var year2 = "2001";
+      var area1 = "0";
+      var area2 = "0";
+      var newSelectedValue = "0";
+      var oldSelectedValue = "0";
     </script>
     <script>
-            // Load Costa Rica map geojson
+      // Load Costa Rica map geojson
       d3.json("../data_src/cr.geojson").then(function (data) {
         // Draw the map
         svg
@@ -94,195 +95,211 @@
           .attr("d", d3.geoPath().projection(projection))
           .style("stroke", "black")
           .style("stroke-width", "0.5px")
-          .on("mouseover", function(d, data) {
-            d3.select(this)
-            .attr("fill", "green")
-            .style("opacity", 0.7);
+          .on("mouseover", function (d, data) {
+            d3.select(this).attr("fill", "green").style("opacity", 0.7);
 
-            var province = ""
-            var width_zoom = 0
-            var height_zoom = 0
-            var width_province_old = -175
-            var height_province_old = -285
-            var width_province_new = 200
-            var height_province_new = -285
+            var province = "";
+            var width_zoom = 0;
+            var height_zoom = 0;
+            var width_province_old = -175;
+            var height_province_old = -285;
+            var width_province_new = 200;
+            var height_province_new = -285;
             year1 = oldSelectedValue;
             year2 = newSelectedValue;
             //Define the cone position in the graphic
-            switch(data.id) {
+            switch (data.id) {
               case "01":
-                width_zoom = -230
-                height_zoom = 120
-                width_province_old = -210
-                province = "San José"
+                width_zoom = -230;
+                height_zoom = 120;
+                width_province_old = -210;
+                province = "San José";
                 break;
               case "02":
-                width_zoom = -300
-                height_zoom = -5
-                width_province_new = 230
-                province = "Alajuela"
+                width_zoom = -300;
+                height_zoom = -5;
+                width_province_new = 230;
+                province = "Alajuela";
                 break;
               case "03":
-                width_zoom = -185
-                height_zoom = 120
-                width_province_old = -210
-                height_province_old = -260
-                height_province_new = -260
-                province = "Cartago"
+                width_zoom = -185;
+                height_zoom = 120;
+                width_province_old = -210;
+                height_province_old = -260;
+                height_province_new = -260;
+                province = "Cartago";
                 break;
               case "04":
-                width_zoom = -225
-                height_zoom = 20
-                width_province_old = -200
-                width_province_new = 210
-                province = "Heredia"
+                width_zoom = -225;
+                height_zoom = 20;
+                width_province_old = -200;
+                width_province_new = 210;
+                province = "Heredia";
                 break;
               case "05":
-                width_zoom = -435
-                height_zoom = -5
-                width_province_old = -220
-                width_province_new = 190
-                province = "Guanacaste"
+                width_zoom = -435;
+                height_zoom = -5;
+                width_province_old = -220;
+                width_province_new = 190;
+                province = "Guanacaste";
                 break;
-               case "06":
-                width_zoom = -230
-                height_zoom = 190
-                province = "Puntarenas"
+              case "06":
+                width_zoom = -230;
+                height_zoom = 190;
+                province = "Puntarenas";
                 break;
               case "07":
-                width_zoom = -150
-                height_zoom = 70
-                width_province_old = -210
-                province = "Limón"
+                width_zoom = -150;
+                height_zoom = 70;
+                width_province_old = -210;
+                province = "Limón";
                 break;
             }
             //Load the specific province selected
-            d3.json("../data_src/"+province+".geojson").then(function (newdata) {
+            d3.json("../data_src/" + province + ".geojson").then(function (
+              newdata
+            ) {
               //Load the province data
-              d3.csv("../data_src/cafe_pr.csv").then(function(data) {
+              d3.csv("../data_src/cafe_pr.csv").then(function (data) {
                 // Define the color scale
-                var color = d3.scaleSequential()
-                  .domain(d3.extent(data, d => +d.area))
+                var color = d3
+                  .scaleSequential()
+                  .domain(d3.extent(data, (d) => +d.area))
                   .interpolator(d3.interpolateBrBG);
-                
-                // Add a new group for the new paths
-                var newGroup = svg.append("g").attr("class", "new-paths");
 
-                // Add the cone image
-                newGroup.append("svg:image")
+                // Add a new group for visualizations on province zoom 
+                var newGroup_visualization = svg.append("g").attr("class", "new-paths");
+
+                // Add the zoom image
+                newGroup_visualization
+                  .append("svg:image")
                   .attr("xlink:href", "../data_src/zoom.png")
                   .attr("width", 1536)
                   .attr("height", 384)
-                  .attr("transform", `translate(${width_zoom}, ${height_zoom})`);
+                  .attr(
+                    "transform",
+                    `translate(${width_zoom}, ${height_zoom})`
+                  );
 
                 //Add the first compared province
-                newGroup
+                newGroup_visualization
                   .selectAll(".old-compare-path")
                   .data(newdata.features)
                   .join("path")
                   .attr("class", "old-compare-path")
                   .attr("fill", "blue")
-                  .attr("fill", d => {
-                    var area = data.find(item => item.province === province && item.year === year1);
-                    area2 = area?.area ?? "0";
+                  .attr("fill", (d) => {
+                    var area = data.find(
+                      (item) =>
+                        item.province === province && item.year === year1
+                    );
+                    area1 = area?.area ?? "0";
                     return area ? color(+area.area) : "gray";
                   })
                   .attr("d", d3.geoPath().projection(projection))
                   .style("stroke", "black")
                   .style("stroke-width", "2px")
-                  .attr("transform", `translate(${width_province_old}, ${height_province_old})`);
+                  .attr(
+                    "transform",
+                    `translate(${width_province_old}, ${height_province_old})`
+                  );
 
                 //Add the second compared province
-                newGroup
+                newGroup_visualization
                   .selectAll(".new-compare-path")
                   .data(newdata.features)
                   .join("path")
                   .attr("class", "new-compare-path")
-                  .attr("fill", d => {
-                    var area = data.find(item => item.province === province && item.year === year2);
+                  .attr("fill", (d) => {
+                    var area = data.find(
+                      (item) =>
+                        item.province === province && item.year === year2
+                    );
                     area2 = area?.area ?? "0";
                     return area ? color(+area.area) : "gray";
                   })
                   .attr("d", d3.geoPath().projection(projection))
                   .style("stroke", "black")
                   .style("stroke-width", "2px")
-                  .attr("transform", `translate(${width_province_new}, ${height_province_new})`);
+                  .attr(
+                    "transform",
+                    `translate(${width_province_new}, ${height_province_new})`
+                  );
 
-                // Add the box
-                var textBox = newGroup.append("rect")
-                  .attr("x", 260) // Adjust the x position of the box
-                  .attr("y", 600) // Adjust the y position of the box
-                  .attr("width", 250) // Adjust the width of the box
-                  .attr("height", 90) // Adjust the height of the box
+                // Add the textbox
+                var textBox = newGroup_visualization
+                  .append("rect")
+                  .attr("x", 260) // x pos on screen
+                  .attr("y", 600) // y pos on screen
+                  .attr("width", 250) // Box's width
+                  .attr("height", 90) // Box's height
                   .style("fill", "white")
                   .style("stroke", "black")
                   .style("stroke-width", "1px");
 
                 // Add the text inside the box
-                newGroup.append("text")
-                  .attr("x", 410) // Adjust the x position of the text
-                  .attr("y", 610) // Adjust the y position of the text
+                newGroup_visualization
+                  .append("text")
+                  .attr("x", 410) // text x position
+                  .attr("y", 610) // text y position
                   .attr("text-anchor", "middle") // Set alignment to the middle
-                  .style("font-size", "20px") // Adjust font size as needed
+                  .style("font-size", "20px")
                   .style("font-weight", "bold")
                   .style("fill", "black")
                   .selectAll("tspan")
-                  .data((`Hectareas Cultivadas \n Año ${year1}:  ${area1} \n Año ${year2}: ${area2}`).split("\n")) // Split the text by line breaks
+                  .data(
+                    `Hectareas Cultivadas \n Año ${year1}:  ${area1} \n Año ${year2}: ${area2}`.split(
+                      "\n"
+                    )
+                  ) // Split the text by line breaks
                   .enter()
                   .append("tspan")
-                  .attr("x", 390) // Adjust the x position of the text within the box
-                  .attr("dy", "1em") // Adjust the line spacing as needed
-                  .text(d => d);
-                });
+                  .attr("x", 390)
+                  .attr("dy", "1em")
+                  .text((d) => d);
               });
-            })
-            .on("mouseout", function(d) {
+            });
+          })
+          .on("mouseout", function (d) {
             // Remove the province added and reset the map opacity
-            d3.select(this)
-              .attr("fill", "white")
-              .style("opacity", 1.0);
-            
-              d3.selectAll(".new-paths").remove();
+            d3.select(this).attr("fill", "white").style("opacity", 1.0);
+
+            d3.selectAll(".new-paths").remove();
           });
-          
-      });    
+      });
 
       // Insert the dropdowns
-
       const old_dropdown = d3.select("#old-year-dd");
       const new_dropdown = d3.select("#new-year-dd");
-      
 
       old_dropdown.property("value", "0000");
       new_dropdown.property("value", "0000");
 
-
       // Add event listener for D3 and dropdown
-      old_dropdown.on("change", function() {
+      old_dropdown.on("change", function () {
         oldSelectedValue = old_dropdown.property("value");
       });
 
       // Add event listener for D3 and dropdown
-      new_dropdown.on("change", function() {
+      new_dropdown.on("change", function () {
         newSelectedValue = new_dropdown.property("value");
       });
-
     </script>
     <script>
       // Create and append the image container div
       var imageDiv = document.createElement("div");
       imageDiv.classList.add("image-container");
-    
+
       // Create and set the image element
       var image = document.createElement("img");
       image.src = "../data_src/brbg.png";
       image.alt = "Visualization color scale";
-      image.style.width = "250px"; // Adjust the width as needed
-      image.style.height = "auto"; // Maintain aspect ratio
-    
+      image.style.width = "250px";
+      image.style.height = "auto";
+
       // Append the image to the image container div
       imageDiv.appendChild(image);
-    
+
       // Append the image container div to the left-side div
       var leftSide = document.getElementById("left-side-1");
       leftSide.appendChild(imageDiv);
